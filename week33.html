@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Conditionals and Loops</title>
+</head>
+<body>
+    <h1>JavaScript Conditionals and Loops</h1>
+    <p id="output"></p>
+
+    <script>
+        let text = "";
+
+        // ---------- CONDITIONAL STATEMENTS ----------
+        let number = 15;
+
+        if (number > 0) {
+            text += "Number is Positive<br>";
+        } else if (number < 0) {
+            text += "Number is Negative<br>";
+        } else {
+            text += "Number is Zero<br>";
+        }
+
+        // ---------- SWITCH STATEMENT ----------
+        let day = 3;
+        switch(day) {
+            case 1:
+                text += "Today is Monday<br>";
+                break;
+            case 2:
+                text += "Today is Tuesday<br>";
+                break;
+            case 3:
+                text += "Today is Wednesday<br>";
+                break;
+            default:
+                text += "Invalid Day<br>";
+        }
+
+        // ---------- LOOPS ----------
+        // FOR loop (1 to 5)
+        text += "<br>For Loop: ";
+        for(let i=1; i<=5; i++){
+            text += i + " ";
+        }
+
+        // WHILE loop (1 to 5)
+        text += "<br>While Loop: ";
+        let j = 1;
+        while(j <= 5){
+            text += j + " ";
+            j++;
+        }
+
+        // DO-WHILE loop
+        text += "<br>Do-While Loop: ";
+        let k = 1;
+        do {
+            text += k + " ";
+            k++;
+        } while(k <= 5);
+
+        document.getElementById("output").innerHTML = text;
+    </script>
+</body>
+</html>

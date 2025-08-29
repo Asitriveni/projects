@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Functions</title>
+</head>
+<body>
+    <h1>JavaScript Functions Example</h1>
+    <p id="output"></p>
+
+    <script>
+        let text = "";
+
+        // --------- SIMPLE FUNCTION ---------
+        function greet() {
+            return "Hello, Welcome to JavaScript Functions!";
+        }
+
+        text += greet() + "<br>";   // calling function
+
+        // --------- FUNCTION WITH PARAMETERS ---------
+        function add(a, b) {
+            return a + b;
+        }
+
+        let sum = add(10, 20);  
+        text += "Sum of 10 and 20 is: " + sum + "<br>";
+
+        // --------- FUNCTION WITH DEFAULT VALUE ---------
+        function multiply(a, b = 2) {
+            return a * b;
+        }
+
+        text += "Multiply 5 with default 2: " + multiply(5) + "<br>";
+        text += "Multiply 5 and 3: " + multiply(5, 3) + "<br>";
+
+        // --------- ANONYMOUS FUNCTION (stored in variable) ---------
+        let square = function(num) {
+            return num * num;
+        };
+
+        text += "Square of 6 is: " + square(6) + "<br>";
+
+        // --------- ARROW FUNCTION ---------
+        let cube = (num) => num * num * num;
+        text += "Cube of 4 is: " + cube(4) + "<br>";
+
+        document.getElementById("output").innerHTML = text;
+    </script>
+</body>
+</html>
