@@ -1,21 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head><title>Even or Odd</title></head>
+<head>
+    <title>Mini Project - To Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: darkblue;
+        }
+        input {
+            padding: 8px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        button {
+            padding: 8px 12px;
+            margin-left: 5px;
+            border: none;
+            background: darkblue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        ul {
+            margin-top: 20px;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            padding: 8px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li.done {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
 <body>
-    <h2>Check Even or Odd</h2>
-    <input type="number" id="num" placeholder="Enter number">
-    <button onclick="checkEvenOdd()">Check</button>
-    <p id="result"></p>
+    <h1>✅ To Do List App</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter your task">
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
 
     <script>
-        function checkEvenOdd() {
-            let n = document.getElementById("num").value;
-            if (n % 2 == 0) {
-                document.getElementById("result").innerHTML = "Even Number";
-            } else {
-                document.getElementById("result").innerHTML = "Odd Number";
-            }
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        function displayTasks() {
+            let list = document.getElementById("taskList");
+            list.innerHTML = "";
+            tasks.forEach((task, index) => {
+                let li = document.createElement("li");
+                li.textContent = task.name;
+
+                if (task.done) {
+                    li.classList.add("done");
+                }
+
+                // Mark done button
+                let doneBtn = document.createElement("button");
+                doneBtn.textContent = "✔ Done";
+                doneBtn.onclick = () => markDone(index);
+
+                // Delete button
+                let delBtn = document.createElement("button");
+                delBtn.textContent = "❌ Delete";
+                delBtn.onclick = () => deleteTask(index);
+
+                li.appendChild(doneBtn);
+                li.appendChild(delBtn);
+
+                list.appendChild(li);
+            });
         }
+
+        function addTask() {
+            let input = document.getElementById("taskInput");
+            let taskName = input.value.trim();
+
+            if (taskName === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            let newTask = { name: taskName, done: false };
+            tasks.push(newTask);
+            input.value = "";
+
+            saveTasks();
+            displayTasks();
+        }
+
+        function markDone(index) {
+            tasks[index].done = !tasks[index].done;
+            saveTasks();
+            displayTasks();
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            saveTasks();
+            displayTasks();
+        }
+
+        function saveTasks() {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        // Initial load
+        displayTasks();
     </script>
 </body>
 </html>

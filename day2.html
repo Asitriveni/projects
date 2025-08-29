@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            background: darkblue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #myBox {
+            width: 200px;
+            height: 100px;
+            background: lightgray;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation Demo 🎯</h1>
+
+    <!-- Buttons to change content -->
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="hideBox()">Hide Box</button>
+    <button onclick="showBox()">Show Box</button>
+
+    <div id="myBox">Hello DOM 👋</div>
+
+    <script>
+        // Change text content
+        function changeText() {
+            document.getElementById("myBox").innerHTML = "Text Changed ✅";
+        }
+
+        // Change background color
+        function changeColor() {
+            document.getElementById("myBox").style.background = "lightgreen";
+        }
+
+        // Hide the box
+        function hideBox() {
+            document.getElementById("myBox").style.display = "none";
+        }
+
+        // Show the box again
+        function showBox() {
+            document.getElementById("myBox").style.display = "block";
+        }
+    </script>
+</body>
+</html>

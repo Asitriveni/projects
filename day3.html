@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LocalStorage Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        button {
+            border: none;
+            background: darkblue;
+            color: white;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>LocalStorage Demo 🎯</h1>
+
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="saveName()">Save Name</button>
+    <button onclick="showName()">Show Name</button>
+    <button onclick="clearName()">Clear Name</button>
+
+    <p id="output"></p>
+
+    <script>
+        // Save data into LocalStorage
+        function saveName() {
+            let name = document.getElementById("username").value;
+            localStorage.setItem("myName", name);   // store key:value
+            document.getElementById("output").innerHTML = "✅ Name saved!";
+        }
+
+        // Show saved data
+        function showName() {
+            let name = localStorage.getItem("myName");
+            if(name) {
+                document.getElementById("output").innerHTML = "👋 Welcome back, " + name;
+            } else {
+                document.getElementById("output").innerHTML = "⚠️ No name found!";
+            }
+        }
+
+        // Clear data
+        function clearName() {
+            localStorage.removeItem("myName");
+            document.getElementById("output").innerHTML = "🗑️ Name cleared!";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrays & Objects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            background: darkblue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrays & Objects Demo 🎯</h1>
+
+    <button onclick="showArray()">Show Fruits (Array)</button>
+    <button onclick="showObject()">Show Student (Object)</button>
+
+    <p id="output"></p>
+
+    <script>
+        // Array Example
+        let fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+        // Object Example
+        let student = {
+            name: "Triveni",
+            age: 20,
+            course: "B.Tech CSE",
+            place: "Ichapuram"
+        };
+
+        function showArray() {
+            document.getElementById("output").innerHTML = 
+                "🍎 Fruits: " + fruits.join(", ");
+        }
+
+        function showObject() {
+            document.getElementById("output").innerHTML = 
+                "👩‍🎓 Student: " + student.name + ", " + student.age + " years, " + student.course + " from " + student.place;
+        }
+    </script>
+</body>
+</html>

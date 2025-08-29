@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background: darkblue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+        p {
+            font-size: 18px;
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Events Demo 🎯</h1>
+
+    <!-- Click Event -->
+    <button onclick="showMessage()">Click Me</button>
+    <p id="clickOutput"></p>
+
+    <!-- Mouse Over Event -->
+    <button onmouseover="hoverMessage()">Hover Over Me</button>
+    <p id="hoverOutput"></p>
+
+    <!-- Input Event -->
+    <input type="text" id="nameInput" placeholder="Type your name" onkeyup="showName()">
+    <p id="nameOutput"></p>
+
+    <script>
+        // Click Event
+        function showMessage() {
+            document.getElementById("clickOutput").innerHTML = "✅ You clicked the button!";
+        }
+
+        // Mouse Over Event
+        function hoverMessage() {
+            document.getElementById("hoverOutput").innerHTML = "👋 You hovered over the button!";
+        }
+
+        // Input Event (key press)
+        function showName() {
+            let name = document.getElementById("nameInput").value;
+            document.getElementById("nameOutput").innerHTML = "Hello, " + name;
+        }
+    </script>
+</body>
+</html>
